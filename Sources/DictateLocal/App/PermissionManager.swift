@@ -1,6 +1,7 @@
 import Cocoa
 import ApplicationServices
 import AVFoundation
+import IOKit.hid
 
 struct PermissionSnapshot {
     let accessibility: Bool
@@ -32,9 +33,16 @@ enum PermissionManager {
         _ = AXIsProcessTrustedWithOptions(options)
     }
     
+    /// macOS only shows its prompt while the decision is still open. After a denial, or for an entry
+    /// left by a build with another signature, it refuses silently, so the settings page opens instead.
     static func requestInputMonitoringPermission() {
-        if !CGPreflightListenEventAccess() {
+        switch IOHIDCheckAccess(kIOHIDRequestTypeListenEvent) {
+        case kIOHIDAccessTypeGranted:
+            return
+        case kIOHIDAccessTypeUnknown:
             _ = CGRequestListenEventAccess()
+        default:
+            openInputMonitoringSettings()
         }
     }
     

@@ -4,6 +4,10 @@ All notable changes to DictateLocal are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+### Fixed
+
+- Granting Input Monitoring opens System Settings when macOS no longer shows its prompt, for example after an earlier denial or an install with a different signature. Before, nothing happened.
+
 ## [0.1.0] - 2026-11-07
 
 First public release.
