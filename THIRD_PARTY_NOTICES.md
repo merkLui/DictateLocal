@@ -82,8 +82,8 @@ SOFTWARE.
 | Parakeet Ultra, Core ML conversion | Speech recognition (on release) | [FluidInference/parakeet-ultra-coreml](https://huggingface.co/FluidInference/parakeet-ultra-coreml), based on [moondream/parakeet-ultra](https://huggingface.co/moondream/parakeet-ultra) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | Spokenly Cleanup 1, converted to 4-bit on your Mac | Optional on-device text cleanup | [spokenly/cleanup-1](https://huggingface.co/spokenly/cleanup-1), a fine-tune of [Qwen/Qwen3-0.6B-Base](https://huggingface.co/Qwen/Qwen3-0.6B-Base) | Apache License 2.0 |
 
-Parakeet Ultra is used under CC BY 4.0: credit goes to its authors as listed on the model pages above;
-the Core ML conversion changes the format, not the weights' content.
+Parakeet Ultra is used under CC BY 4.0. Credit goes to its authors as listed on the model pages above;
+DictateLocal uses FluidInference's Core ML conversion unchanged.
 
 ## Online service
 

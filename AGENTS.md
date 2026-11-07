@@ -48,7 +48,7 @@ Resources/                App icon and entitlements
 
 1. `scripts/test.sh` passes.
 2. `scripts/build-app.sh` builds without new warnings in files you touched.
-3. For UI changes, launch `dist/DictateLocal.app --settings=model` (or `general`, `vocabulary`, `diagnostics`) and look at the page. Quit the installed DictateLocal first, because two copies would share the shortcut.
+3. For UI changes, run `open dist/DictateLocal.app --args --settings=model` (or `general`, `vocabulary`, `diagnostics`) and look at the page. Quit the installed DictateLocal first, because two copies would share the shortcut.
 4. For changes to recognition or cleanup, run `DictateBench` on a real recording and compare with the previous output.
 
 ## Commits and pull requests

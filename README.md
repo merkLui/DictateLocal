@@ -84,7 +84,7 @@ Claude Haiku needs an [Anthropic API key](https://console.anthropic.com/) and co
 - Speech recognition always runs on your Mac. Audio is never stored or uploaded.
 - Spokenly Cleanup and list formatting also run on your Mac.
 - Only if you turn on Claude Haiku is the recognized text, not the audio, sent to Anthropic with your key. The key is stored in `~/Library/Application Support/DictateLocal/anthropic-api-key`, readable only by your user account.
-- A local log helps with troubleshooting. Turn on **Hide dictated text in log** under Diagnostics to keep your words out of it. The log stays on your Mac unless you export it.
+- A local log helps with troubleshooting. By default it leaves out what you dictated; this is the **Hide dictated text in log** setting under Diagnostics. The log stays on your Mac unless you export it.
 - DictateLocal has no analytics and no telemetry. Its only network requests are model downloads from Hugging Face and, if enabled, the Anthropic API.
 
 ## FAQ
