@@ -41,11 +41,10 @@ Both run through a pinned FluidAudio revision. To add a model, implement `Speech
 
 `TextCleanup` removes hesitation sounds such as "äh" and applies the replacements from Settings > Vocabulary. It never rewrites or invents text.
 
-## Checks
+## Tests
 
 ```bash
-swift run DictateChecks                 # cleanup checks
-swift run DictateChecks audio.wav       # stream a file in real time
-swift run DictateChecks audio.wav --fast
-swift run DictateChecks --claude low     # clean stdin lines with Claude, key in ANTHROPIC_API_KEY
+scripts/test.sh                                  # unit tests
+swift run DictateBench audio.wav                 # stream a file in real time
+swift run DictateBench audio.wav --fast
 ```

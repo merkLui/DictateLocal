@@ -25,8 +25,14 @@ let package = Package(
             dependencies: ["DictateCore"],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
+        // Maintainer tool: streams audio files through the models and benchmarks the cleanup.
         .executableTarget(
-            name: "DictateChecks",
+            name: "DictateBench",
+            dependencies: ["DictateCore"],
+            swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        .testTarget(
+            name: "DictateCoreTests",
             dependencies: ["DictateCore"],
             swiftSettings: [.swiftLanguageMode(.v5)]
         )
