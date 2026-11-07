@@ -6,7 +6,7 @@ cd "$(dirname "$0")/../.."
 : "${VERSION:?set VERSION}"
 : "${TAP_DEPLOY_KEY:?missing secret TAP_DEPLOY_KEY}"
 
-SHA=$(cut -d' ' -f1 "dist/DictateLocal-${VERSION}.zip.sha256")
+SHA=$(cut -d' ' -f1 "dist/DictateLocal-${VERSION}.dmg.sha256")
 KEY="${RUNNER_TEMP}/tap_key"
 printf '%s\n' "${TAP_DEPLOY_KEY}" > "${KEY}"
 chmod 600 "${KEY}"

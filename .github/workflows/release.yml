@@ -41,7 +41,15 @@ jobs:
           CODESIGN_IDENTITY: DictateLocal Release
         run: scripts/build-app.sh
 
-      - name: Package
+      - name: Install dmgbuild
+        run: |
+          python3 -m venv "$RUNNER_TEMP/dmgbuild"
+          "$RUNNER_TEMP/dmgbuild/bin/pip" install --quiet --require-hashes -r scripts/ci/dmg-requirements.txt
+          echo "DMGBUILD=$RUNNER_TEMP/dmgbuild/bin/dmgbuild" >> "$GITHUB_ENV"
+
+      - name: Package disk image
+        env:
+          CODESIGN_IDENTITY: DictateLocal Release
         run: scripts/ci/package.sh
 
       - name: Publish GitHub release
@@ -50,7 +58,7 @@ jobs:
         run: |
           scripts/ci/release-notes.sh "$VERSION" > dist/notes.md
           gh release create "v$VERSION" --verify-tag --title "DictateLocal $VERSION" --notes-file dist/notes.md \
-            "dist/DictateLocal-$VERSION.zip" "dist/DictateLocal-$VERSION.zip.sha256"
+            "dist/DictateLocal-$VERSION.dmg" "dist/DictateLocal-$VERSION.dmg.sha256"
 
       - name: Update Homebrew cask
         env:

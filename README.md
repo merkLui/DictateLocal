@@ -38,9 +38,9 @@ brew install --cask merkLui/tap/dictatelocal
 
 ### Download
 
-1. Download `DictateLocal-<version>.zip` from the [latest release](https://github.com/merkLui/DictateLocal/releases/latest) and unzip it.
-2. Move `DictateLocal.app` to `/Applications`.
-3. Open it. macOS will say it cannot verify the developer, because DictateLocal is not notarized by Apple (see [FAQ](#why-does-macos-say-it-cannot-verify-the-app)). Open **System Settings > Privacy & Security** and click **Open Anyway**. This is needed once.
+1. Download `DictateLocal-<version>.dmg` from the [latest release](https://github.com/merkLui/DictateLocal/releases/latest).
+2. Open it and drag DictateLocal onto the Applications folder.
+3. Open DictateLocal from Applications. macOS will say it cannot verify the developer, because DictateLocal is not notarized by Apple (see [FAQ](#why-does-macos-say-it-cannot-verify-the-app)). Open **System Settings > Privacy & Security** and click **Open Anyway**. This is needed once.
 
 ### Build from source
 

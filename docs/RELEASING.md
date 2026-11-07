@@ -13,7 +13,7 @@ Releases are built, signed and published by [the release workflow](../.github/wo
    git push origin vx.y.z
    ```
 
-The workflow then runs the tests, signs the app with the release certificate, uploads `DictateLocal-x.y.z.zip` with its SHA-256 to a GitHub release whose notes come from the changelog, and updates the cask in [merkLui/homebrew-tap](https://github.com/merkLui/homebrew-tap).
+The workflow then runs the tests, signs the app with the release certificate, packs it into a drag-to-install disk image with [dmgbuild](https://github.com/dmgbuild/dmgbuild), uploads `DictateLocal-x.y.z.dmg` with its SHA-256 to a GitHub release whose notes come from the changelog, and updates the cask in [merkLui/homebrew-tap](https://github.com/merkLui/homebrew-tap).
 
 ## Signing
 

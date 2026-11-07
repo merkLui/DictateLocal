@@ -10,4 +10,4 @@ NOTES=$(awk -v version="${VERSION}" '
     found && !/^\[[^]]*\]: / { print }
 ' CHANGELOG.md)
 [ -n "${NOTES}" ] || { echo "CHANGELOG.md has no section for ${VERSION}" >&2; exit 1; }
-printf '%s\n\n%s\n' "${NOTES}" "Install with \`brew install --cask merkLui/tap/dictatelocal\` or download the zip below. See the [README](https://github.com/merkLui/DictateLocal#install) for the first launch."
+printf '%s\n\n%s\n' "${NOTES}" "Install with \`brew install --cask merkLui/tap/dictatelocal\` or download the disk image below. See the [README](https://github.com/merkLui/DictateLocal#install) for the first launch."
