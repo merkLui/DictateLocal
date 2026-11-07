@@ -103,6 +103,12 @@ The Homebrew cask does this for you after installing.
 
 No. Releases are signed with the same DictateLocal certificate, so macOS recognizes an update as the same app. If you switch between a release and your own build, grant them once more.
 
+If DictateLocal still asks although its switch in **System Settings > Privacy & Security** is on, that entry belongs to an older build. Remove it with the minus button and grant the permission again, or reset it in Terminal, for example for Input Monitoring:
+
+```bash
+tccutil reset ListenEvent com.luismerk.DictateLocal
+```
+
 ### Where are the models stored?
 
 Speech models in `~/Library/Application Support/FluidAudio/Models`, the Spokenly model in `~/Library/Application Support/DictateLocal/Models`. You can delete them under **Settings > Model**.
