@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# SwiftPM and Xcode
+.build/
+.swiftpm/
+DerivedData/
+*.xcodeproj/
+xcuserdata/
+
+# Build output
+*.app
+/dist/
+
+# Secrets and signing material
+.env
+.env.*
+*.p12
+*.p8
+*.cer
+*.mobileprovision
+*.keychain-db
+
+# Local recordings and exported logs
+*.wav
+*.log
