@@ -16,7 +16,6 @@ public enum TextCleanup {
     public static let defaultReplacementsText = """
     merchen -> mergen
     Cloud Code -> Claude Code
-    Whisper Flow -> Wispr Flow
     Hot Key -> Hotkey
     """
 
