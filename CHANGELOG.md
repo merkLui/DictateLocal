@@ -4,6 +4,8 @@ All notable changes to DictateLocal are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-07
+
 ### Fixed
 
 - Granting Input Monitoring opens System Settings when macOS no longer shows its prompt, for example after an earlier denial or an install with a different signature. Before, nothing happened.
@@ -21,5 +23,6 @@ First public release.
 - Vocabulary replacements for words the model keeps getting wrong.
 - Settings in the style of System Settings, with info buttons that explain each option, including disk and memory use per model.
 
-[Unreleased]: https://github.com/merkLui/DictateLocal/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/merkLui/DictateLocal/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/merkLui/DictateLocal/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/merkLui/DictateLocal/releases/tag/v0.1.0
