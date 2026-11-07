@@ -1,0 +1,62 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Build, sign and publish
+    runs-on: macos-26
+    timeout-minutes: 90
+    env:
+      VERSION: ${{ github.ref_name }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Read version
+        run: echo "VERSION=${VERSION#v}" >> "$GITHUB_ENV"
+
+      - name: Test
+        run: scripts/test.sh
+
+      - name: Import signing certificate
+        env:
+          SIGNING_CERTIFICATE_P12: ${{ secrets.SIGNING_CERTIFICATE_P12 }}
+          SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
+        run: scripts/ci/import-certificate.sh
+
+      - name: Build app
+        env:
+          CODESIGN_IDENTITY: DictateLocal Release
+        run: scripts/build-app.sh
+
+      - name: Package
+        run: scripts/ci/package.sh
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          scripts/ci/release-notes.sh "$VERSION" > dist/notes.md
+          gh release create "v$VERSION" --verify-tag --title "DictateLocal $VERSION" --notes-file dist/notes.md \
+            "dist/DictateLocal-$VERSION.zip" "dist/DictateLocal-$VERSION.zip.sha256"
+
+      - name: Update Homebrew cask
+        env:
+          TAP_DEPLOY_KEY: ${{ secrets.TAP_DEPLOY_KEY }}
+        run: scripts/ci/update-cask.sh
+
+      - name: Remove signing keychain
+        if: always()
+        run: security delete-keychain "$RUNNER_TEMP/signing.keychain-db" 2>/dev/null || true

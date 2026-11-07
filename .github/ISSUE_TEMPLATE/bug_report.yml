@@ -1,0 +1,41 @@
+name: Bug report
+description: Something does not work as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: DictateLocal version
+      description: The release you installed, or the commit if you built it yourself.
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and Mac
+      placeholder: macOS 26.6 on a MacBook Pro M2
+    validations:
+      required: true
+  - type: dropdown
+    id: model
+    attributes:
+      label: Speech model
+      options: [NVIDIA Nemotron, Parakeet Ultra]
+  - type: input
+    id: app
+    attributes:
+      label: App you dictated into
+      placeholder: Slack, Chrome, Terminal, ...
+  - type: textarea
+    id: log
+    attributes:
+      label: Log excerpt
+      description: Settings > Diagnostics > Export. Turn on "Hide dictated text in log" first if you do not want to share what you said.
+      render: text
