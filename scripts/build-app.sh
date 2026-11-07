@@ -47,6 +47,9 @@ cp "${BIN_DIR}/${APP_NAME}" "${CONTENTS_DIR}/MacOS/"
 # MLX looks for its shaders next to the binary.
 cp "${METALLIB}" "${CONTENTS_DIR}/MacOS/mlx.metallib"
 
+# Licenses travel with the app, as the MIT and Apache licenses of its dependencies require.
+cp LICENSE NOTICE THIRD_PARTY_NOTICES.md "${RESOURCES_DIR}/"
+
 # SwiftPM resource bundles, for example from FluidAudio.
 find "${BIN_DIR}" -maxdepth 1 -name "*.bundle" -exec cp -R {} "${RESOURCES_DIR}/" \;
 
